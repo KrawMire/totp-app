@@ -1,0 +1,22 @@
+.code-card {
+    padding: 20px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    box-shadow: #7c7c7c 3px 0 10px;
+    width: 50%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.code-name {
+    color: #3f3f3f;
+    font-size: .9em;
+}
+
+.secret-code {
+    margin-top: 5px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #425db6;
+}

@@ -1,7 +1,7 @@
 import './App.css';
-import generateTOTP from "./utils/totp-generator";
-import NewCodeForm from "./components/new-code-form";
+import NewCodeForm from "./components/new-code-form/new-code-form";
 import {useEffect, useState} from "react";
+import CodeCard from "./components/code-card/code-card";
 
 function App() {
   const [showNewForm, setShowNewForm] = useState(false);
@@ -15,7 +15,6 @@ function App() {
     return () => clearInterval(intervalId);
   }, []);
 
-
   let codes = [];
   const codesJson = localStorage.getItem("codes");
 
@@ -24,15 +23,25 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {showNewForm && <NewCodeForm onClose={() => setShowNewForm(false)}/>}
-      {codes.map((code) => (
-        <div key={code.name}>
-          <p>{code.name}</p>
-          <p>{generateTOTP(code.key)}</p>
-        </div>
-      ))}
-      <button onClick={() => setShowNewForm(true)}>Add new code</button>
+    <div className="app">
+      <NewCodeForm
+        show={showNewForm}
+        onClose={() => setShowNewForm(false)}
+      />
+      <div className="codes-container">
+        {codes.map((code) => (
+          <CodeCard
+            code={code}
+            key={code.name}
+          />
+        ))}
+      </div>
+      <button
+        className="add-new-code-button"
+        onClick={() => setShowNewForm(true)}
+      >
+        Add new code
+      </button>
     </div>
   );
 }

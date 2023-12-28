@@ -1,0 +1,22 @@
+.modal-window-backdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(40, 44, 52, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-window-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    height: 60%;
+    width: 50%;
+    box-shadow: #343434 0 0 10px;
+}
